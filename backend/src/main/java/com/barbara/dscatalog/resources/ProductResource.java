@@ -5,6 +5,7 @@ import com.barbara.dscatalog.dto.ProductDTO;
 import com.barbara.dscatalog.entities.Category;
 import com.barbara.dscatalog.services.CategoryService;
 import com.barbara.dscatalog.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,14 +38,14 @@ public class ProductResource {
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> createCategory(@RequestBody ProductDTO dto) {
+    public ResponseEntity<ProductDTO> createCategory(@RequestBody @Valid ProductDTO dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ProductDTO> updateCategory(@PathVariable Long id, @RequestBody ProductDTO dto) {
+    public ResponseEntity<ProductDTO> updateCategory(@PathVariable Long id, @RequestBody @Valid ProductDTO dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }

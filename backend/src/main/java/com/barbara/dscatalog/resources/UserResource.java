@@ -5,6 +5,7 @@ import com.barbara.dscatalog.dto.UserDTO;
 import com.barbara.dscatalog.dto.UserInsertDTO;
 import com.barbara.dscatalog.services.ProductService;
 import com.barbara.dscatalog.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,14 +34,14 @@ public class UserResource {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserInsertDTO dto) {
+    public ResponseEntity<UserDTO> createUser(@RequestBody @Valid UserInsertDTO dto) {
        UserDTO newDto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newDto.getId()).toUri();
         return ResponseEntity.created(uri).body(newDto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO dto) {
+    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody @Valid UserDTO dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
