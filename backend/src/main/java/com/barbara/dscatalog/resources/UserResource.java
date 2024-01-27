@@ -3,6 +3,7 @@ package com.barbara.dscatalog.resources;
 import com.barbara.dscatalog.dto.ProductDTO;
 import com.barbara.dscatalog.dto.UserDTO;
 import com.barbara.dscatalog.dto.UserInsertDTO;
+import com.barbara.dscatalog.dto.UserUpdateDTO;
 import com.barbara.dscatalog.services.ProductService;
 import com.barbara.dscatalog.services.UserService;
 import jakarta.validation.Valid;
@@ -41,9 +42,9 @@ public class UserResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody @Valid UserDTO dto) {
-        dto = service.update(id, dto);
-        return ResponseEntity.ok().body(dto);
+    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody @Valid UserUpdateDTO dto) {
+        UserDTO newDto = service.update(id, dto);
+        return ResponseEntity.ok().body(newDto);
     }
 
     @DeleteMapping(value = "/{id}")
