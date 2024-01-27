@@ -1,5 +1,8 @@
 package com.barbara.dscatalog.dto;
 
+import com.barbara.dscatalog.services.validation.UserInsertValid;
+
+@UserInsertValid
 public class UserInsertDTO extends UserDTO {
 
     private String password;

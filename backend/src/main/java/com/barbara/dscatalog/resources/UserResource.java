@@ -46,7 +46,6 @@ public class UserResource {
         return ResponseEntity.ok().body(dto);
     }
 
-
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<UserDTO> deleteUser(@PathVariable Long id) {
         service.delete(id);
