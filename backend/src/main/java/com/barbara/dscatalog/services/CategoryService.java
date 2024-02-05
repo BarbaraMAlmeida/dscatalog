@@ -5,7 +5,6 @@ import com.barbara.dscatalog.entities.Category;
 import com.barbara.dscatalog.repositories.CategoryRepository;
 import com.barbara.dscatalog.services.exceptions.DatabaseException;
 import com.barbara.dscatalog.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

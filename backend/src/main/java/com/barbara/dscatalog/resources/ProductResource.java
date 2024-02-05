@@ -5,7 +5,6 @@ import com.barbara.dscatalog.dto.ProductDTO;
 import com.barbara.dscatalog.entities.Category;
 import com.barbara.dscatalog.services.CategoryService;
 import com.barbara.dscatalog.services.ProductService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;

@@ -4,14 +4,15 @@ import com.barbara.dscatalog.dto.UserInsertDTO;
 import com.barbara.dscatalog.entities.User;
 import com.barbara.dscatalog.repositories.UserRepository;
 import com.barbara.dscatalog.resources.exceptions.FieldMessage;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.barbara.dscatalog.services.validation.UserInsertValid;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
 
